@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>@yield('title')</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
   
@@ -28,7 +29,7 @@
         @yield('btn')
       </div>
       <div class="md:flex">
-        <div class="bg-wxhite h-fit mx-auto rounded border-2 sm:max-w-lg sm:mb-4 md:w-64 md:mr-4">
+        <div class="bg-white h-fit mx-auto rounded border-2 sm:max-w-lg sm:mb-4 md:w-64 md:mr-4">
           <div class="p-4">
               <div class="mb-6">
                   <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle block m-auto" viewBox="0 0 16 16">
