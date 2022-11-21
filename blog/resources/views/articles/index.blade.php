@@ -14,10 +14,6 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
 @endsection
 
 @section('content')
-    asd
-@endsection
-
-@section('content')        
     <div class="mx-auto md:w-full">
     @foreach ($articles as $article)
     <a href="/articles/{{ $article->id }}/{{ $article->slug }}">
