@@ -12,4 +12,20 @@ class ArticleController extends Controller
             'articles' => Article::all()
         ]);
     }
+
+    public function create() {
+        return view('articles.create');
+    }
+
+    public function store(Request $request) {
+        $validatedData = $request->validate([
+            'title' => 'required',
+            'slug' => 'required',
+            'content' => 'required'
+        ]);
+
+        Article::create($validatedData);
+    
+        return redirect('/articles');
+    }
 }
