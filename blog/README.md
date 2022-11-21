@@ -10,6 +10,7 @@
 ## Passaggi svolti
 
 - Creazione database.
+![database](public/images/schemaER.jpg)
 - Creazione modelli + migrations
 ```
 php artisan make:model <Modelname> -m
@@ -28,3 +29,4 @@ ex. ArticleController
 ```
 - Impostare i routes in web.php file
 - Creazione functions in controller
+
