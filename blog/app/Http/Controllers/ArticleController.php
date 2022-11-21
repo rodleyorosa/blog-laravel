@@ -28,4 +28,10 @@ class ArticleController extends Controller
     
         return redirect('/articles');
     }
+
+    public function getArticle($id) {
+        return view('articles.article', [
+            'article' => Article::findOrFail($id)
+        ]);
+    }
 }
