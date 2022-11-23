@@ -1,11 +1,11 @@
 @extends('layout')
 
 @section('title')
-    Blog | Lista Articoli
+    Blog | Lista articoli
 @endsection
 
-@section('h1')
-    Lista Articoli
+@section('h1')    
+    Lista articoli
 @endsection
 
 @section('btn')
