@@ -28,6 +28,8 @@ Route::post('/articles', [ArticleController::class, 'store']);
 
 Route::get('/articles/{id}/{slug}', [ArticleController::class, 'getArticle']);
 
+Route::get('/articles/delete/{id}', [ArticleController::class, 'delete']);
+
 
 Route::get('/authors', [AuthorController::class, 'index']);
 

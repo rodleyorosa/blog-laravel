@@ -40,4 +40,12 @@ class ArticleController extends Controller
         ]);
     }
 
+    //edit not done
+
+    public function delete($id) {
+        Article::destroy($id);
+        
+        return redirect('/articles');
+    }
+
 }
