@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+
+    public $guarded = [];
+
+    public function article() {
+        return $this->belongsTo(Author::class, 'article_id', 'id', 'articles');
+    }
 }
