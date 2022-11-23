@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\AuthorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,3 +26,10 @@ Route::get('/articles/new', [ArticleController::class, 'create']);
 Route::post('/articles', [ArticleController::class, 'store']);
 
 Route::get('/articles/{id}/{slug}', [ArticleController::class, 'getArticle']);
+
+
+Route::get('/authors', [AuthorController::class, 'index']);
+
+Route::get('/authors/new', [AuthorController::class, 'create']);
+
+Route::post('/authors', [AuthorController::class, 'store']);
