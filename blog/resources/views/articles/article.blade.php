@@ -15,5 +15,17 @@
         <p class="uppercase my-2 text-xs text-gray-300">{{ $article->created_at->format('F d, Y') }} | <span class="transition duration-300 cursor-pointer hover:text-gray-800">music</span></p>
         <p>{{ $article->content }}</p>
     </div>
+    <div>
+        <form action="" method="POST">
+            @csrf
+            <label for="comment">Commento</label>
+            <input class="border-2"
+            name="comment" type="text">
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+        
+    </div>
 </div>
 @endsection
