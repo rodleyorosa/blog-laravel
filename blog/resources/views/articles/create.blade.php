@@ -59,7 +59,7 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
             </span>
         @enderror
       </div>
-      {{-- <div class="flex flex-col">
+      <div class="flex flex-col">
         <label for="author_id" class="font-bold pb-1">Autore</label>
         <select
           id="author_id"
@@ -69,9 +69,9 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
           class="shadow-md outline-none p-1 px-2 rounded border border-blue-200"
         >
         @foreach ($authors as $author)
-          <option 
+          <option
             {{ isset($article->author) && $article->author->id == $author->id ? 'selected' : ''}}   
-              value="{{ $author->id }}">{{ $author->fullName }}</option>
+              value="{{ $author->id }}">{{ $author->name }} {{ $author->surname }}</option>
         @endforeach  
         </select>
         @error('author_id')
@@ -79,7 +79,7 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
               {{ $message }}
             </span>
         @enderror
-      </div> --}}
+      </div>
       <div class="flex flex-col">
         <label for="content" class="font-bold pb-1">Testo</label>
         <textarea

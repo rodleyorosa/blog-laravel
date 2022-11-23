@@ -35,6 +35,8 @@ Route::get('/authors/new', [AuthorController::class, 'create']);
 
 Route::post('/authors', [AuthorController::class, 'store']);
 
+Route::get('/authors/{id}/{name}', [AuthorController::class, 'getAuthor']);
+
 
 // Route::get('/articles/{id}/{slug}', [CommentController::class, 'getComments']);
 

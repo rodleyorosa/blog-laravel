@@ -28,4 +28,10 @@ class AuthorController extends Controller
 
         return redirect('/authors');
     }
+
+    public function getAuthor($id) {
+        return view('authors.author', [
+            'author' => Author::findOrFail($id)
+        ]);
+    }
 }
