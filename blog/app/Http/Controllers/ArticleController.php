@@ -41,6 +41,28 @@ class ArticleController extends Controller
     }
 
     //edit not done
+    public function edit($id) {
+        return view('articles.edit', [
+            'authors' => Author::all(),
+            'article' => Article::findOrFail($id)
+        ]);
+    }
+
+    public function update(Request $request, $id) {
+        $article = Article::findOrFail($id);
+
+        $validatedData = $request->validate([
+            "title" => "required",
+            "slug" => "required",
+            "author_id" => "required",
+            "content" => "required"
+        ]);
+
+        $article->fill($validatedData);
+        $article->save();
+
+        return redirect('/articles');
+    }
 
     public function delete($id) {
         Article::destroy($id);

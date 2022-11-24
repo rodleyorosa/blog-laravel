@@ -26,9 +26,13 @@ Route::get('/articles/new', [ArticleController::class, 'create']);
 
 Route::post('/articles', [ArticleController::class, 'store']);
 
+Route::get('/articles/edit/{id}', [ArticleController::class, 'edit']);
+
+Route::post('/articles/{id}', [ArticleController::class, 'update']);
+
 Route::get('/articles/{id}/{slug}', [ArticleController::class, 'getArticle']);
 
-Route::get('/articles/delete/{id}', [ArticleController::class, 'delete']);
+
 
 
 Route::get('/authors', [AuthorController::class, 'index']);
