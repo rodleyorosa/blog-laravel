@@ -28,6 +28,8 @@ Route::post('/articles', [ArticleController::class, 'store']);
 
 Route::get('/articles/edit/{id}', [ArticleController::class, 'edit']);
 
+Route::get('/articles/delete/{id}', [ArticleController::class, 'delete']);
+
 Route::post('/articles/{id}', [ArticleController::class, 'update']);
 
 Route::get('/articles/{id}/{slug}', [ArticleController::class, 'getArticle']);
@@ -42,6 +44,8 @@ Route::get('/authors/new', [AuthorController::class, 'create']);
 Route::post('/authors', [AuthorController::class, 'store']);
 
 Route::get('/authors/edit/{id}', [AuthorController::class, 'edit']);
+
+Route::get('/authors/delete/{id}', [AuthorController::class, 'delete']);
 
 Route::post('/authors/{id}', [AuthorController::class, 'update']);
 

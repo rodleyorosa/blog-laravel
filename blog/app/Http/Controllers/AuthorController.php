@@ -55,4 +55,10 @@ class AuthorController extends Controller
 
         return redirect('/authors');
     }
+
+    public function delete($id) {
+        Author::destroy($id);
+        
+        return redirect('/authors');
+    }
 }
