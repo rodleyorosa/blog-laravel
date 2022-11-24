@@ -34,4 +34,25 @@ class AuthorController extends Controller
             'author' => Author::findOrFail($id)
         ]);
     }
+
+    public function edit($id) {
+        return view('authors.edit', [
+            'author' => Author::findOrFail($id)
+        ]);
+    }
+
+    public function update(Request $request, $id) {
+        $author = Author::findOrFail($id);
+
+        $validatedData = $request->validate([
+            "name" => "required",
+            "surname" => "required",
+            "email" => "required"
+        ]);
+
+        $author->fill($validatedData);
+        $author->save();
+
+        return redirect('/authors');
+    }
 }
