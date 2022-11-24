@@ -70,4 +70,14 @@ class ArticleController extends Controller
         return redirect('/articles');
     }
 
+    public function indexByAuthor($id) {
+        $author = Author::findOrFail($id);
+
+        return view('articles.index', [
+            "articles" => $author->articles,
+            "author" => $author
+            // "articles" => Article::where("author_id", $id)->get()
+        ]);
+    }
+
 }

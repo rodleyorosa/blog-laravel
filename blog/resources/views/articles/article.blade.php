@@ -19,7 +19,7 @@
         <p>{{ $article->content }}</p>
     </div>
     <div>
-        <form action="" method="POST">
+        <form action="/articles/{{ $article->id }}/{{ $article->slug }}" method="POST">
             @csrf
             <label for="comment">Commento</label>
             <input class="border-2"

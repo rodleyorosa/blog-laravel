@@ -11,8 +11,13 @@
 @section('content')
 <div class="mx-auto md:w-full">
     <div class="bg-white rounded border-2 p-4">
-        <h1 class="text-2xl">{{ $author->name }} {{ $author->surname }}</h1>
-        {{ $author }}
+        <h1 class="text-2xl">{{ $author->name }} {{ $author->surname}}</h1>
+        <ul>
+            <li>{{ $author->name }}</li>
+            <li>{{ $author->surname }}</li>
+            <li>{{ $author->email }}</li>
+        </ul>
+        <a href="/authors/{{ $author->id }}/{{ $author->name }}/articles">Lista articoli di {{ $author->name }}</a>
     </div>
 </div>
 @endsection
