@@ -70,8 +70,8 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
         >
         @foreach ($authors as $author)
           <option
-            {{ isset($article->author) && $article->author->id == $author->id ? 'selected' : ''}}   
-              value="{{ $author->id }}">{{ $author->name }} {{ $author->surname }}</option>
+            {{-- {{ $author->id == $article->author->id ? 'selected' : '' }}    --}}
+            value="{{ $author->id }}">{{ $author->name }} {{ $author->surname }}</option>
         @endforeach  
         </select>
         @error('author_id')
