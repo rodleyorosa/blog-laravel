@@ -20,8 +20,22 @@ textarea{
   min-height: 70px;
 }
 
+.username{
+  font-weight: 700;
+  margin: 0 20px;
+}
+
+.created-at{
+  color: hsl(211, 10%, 45%);
+}
+
+.comment{
+  color: hsl(211, 10%, 45%);
+  margin: 10px 0;
+}
+
 .btn-send{
-  background-color: hsl(238, 40%, 52%);
+  background-color: hsl(238, 40%, 52%)  ;
   color: white;
   font-weight: 500;
   padding: 10px 25px;
