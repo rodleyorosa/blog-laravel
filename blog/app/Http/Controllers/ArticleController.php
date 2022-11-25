@@ -37,7 +37,7 @@ class ArticleController extends Controller
 
     public function getArticle($id) {
         return view('articles.article', [
-            'comments' => Comment::all(),
+            'comments' => Comment::where('article_id', $id)->get(),
             'author' => Author::findOrFail($id),
             'article' => Article::findOrFail($id)
         ]);
@@ -83,13 +83,20 @@ class ArticleController extends Controller
         ]);
     }
 
-    public function storeComment(Request $request) {
-        $validatedData = $request->validate([
-            "comments" => "required",
-            // "author_id" => 
-        ]);
+    public function storeComment(Request $request, $id) {
+        // $validatedData = $request->validate([
+        //     "comments" => "required",
+        //     // "author_id" => 
+        // ]);
 
-        Comment::create($validatedData);
+        // Comment::create($validatedData);
+        $article = Article::findOrFail($id);
+
+        $comments = new Comment();
+        $comments->comments = $request->comments;
+        $comments->article_id = $article->id;
+
+        $comments->save();
         return Redirect::back();
     }
 

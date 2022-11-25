@@ -18,13 +18,13 @@
         <p class="uppercase my-2 text-xs text-gray-300">{{ $article->created_at->format('F d, Y') }} | <span class="transition duration-300 cursor-pointer hover:text-gray-800">music</span></p>
         <p>{{ $article->content }}</p>
     </div>
-    <div>
+    <div class="bg-white p-4 mt-4 rounded-sm shadow-sm border-2">
         <form action="/articles/{{ $article->id }}/{{ $article->slug }}" method="POST">
             @csrf
-            <label for="comments">Commento</label>
-            <input class="border-2"
+            <textarea placeholder="Add a comment..." class="border"
             name="comments" type="text">
-            <input type="submit">
+            
+            </textarea>
         </form>
         <div>
             <ul>
