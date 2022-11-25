@@ -21,11 +21,18 @@
     <div>
         <form action="/articles/{{ $article->id }}/{{ $article->slug }}" method="POST">
             @csrf
-            <label for="comment">Commento</label>
+            <label for="comments">Commento</label>
             <input class="border-2"
-            name="comment" type="text">
+            name="comments" type="text">
             <input type="submit">
         </form>
+        <div>
+            <ul>
+            @foreach ($comments as $comment)
+                <li>{{ $comment->comments }}</li>
+            @endforeach
+            </ul>
+        </div>
     </div>
     <div>
         

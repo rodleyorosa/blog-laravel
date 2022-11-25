@@ -36,6 +36,8 @@ Route::get('/articles/{id}/{slug}', [ArticleController::class, 'getArticle']);
 
 Route::get('/authors/{id}/{name}/articles', [ArticleController::class, 'indexByAuthor']);
 
+Route::post('/articles/{id}/{name}', [ArticleController::class, 'storeComment']);
+
 
 
 Route::get('/authors', [AuthorController::class, 'index']);

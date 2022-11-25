@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Author;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ArticleController extends Controller
 {
@@ -35,6 +37,7 @@ class ArticleController extends Controller
 
     public function getArticle($id) {
         return view('articles.article', [
+            'comments' => Comment::all(),
             'author' => Author::findOrFail($id),
             'article' => Article::findOrFail($id)
         ]);
@@ -78,6 +81,16 @@ class ArticleController extends Controller
             "author" => $author
             // "articles" => Article::where("author_id", $id)->get()
         ]);
+    }
+
+    public function storeComment(Request $request) {
+        $validatedData = $request->validate([
+            "comments" => "required",
+            // "author_id" => 
+        ]);
+
+        Comment::create($validatedData);
+        return Redirect::back();
     }
 
 }
