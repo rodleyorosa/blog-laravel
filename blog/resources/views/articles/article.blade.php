@@ -19,23 +19,21 @@
         <p>{{ $article->content }}</p>
     </div>
     <div class="bg-white p-4 mt-4 rounded-sm shadow-sm border-2">
-        <form action="/articles/{{ $article->id }}/{{ $article->slug }}" method="POST">
+        <form class="flex"
+        action="/articles/{{ $article->id }}/{{ $article->slug }}" method="POST">
             @csrf
-            <textarea placeholder="Add a comment..." class="border"
-            name="comments" type="text">
-            
-            </textarea>
-        </form>
-        <div>
-            <ul>
-            @foreach ($comments as $comment)
-                <li>{{ $comment->comments }}</li>
-            @endforeach
-            </ul>
-        </div>
+            <textarea placeholder="Add a comment..." class="border p-4 mr-4"
+            name="comments" type="text"></textarea>
+            <div>
+                <button class="btn-send">SEND</button>
+            </div>
+        </form> 
     </div>
-    <div>
-        
+    <h2 class="title blue-moderate my-5">COMMENT SECTION</h2>
+    @foreach ($comments as $comment)
+    <div class="bg-white p-4 mt-1 rounded-sm shadow-sm border-2">
+        {{$comment->comments}}
     </div>
+    @endforeach
 </div>
 @endsection

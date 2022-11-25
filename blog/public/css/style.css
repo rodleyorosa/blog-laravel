@@ -1,7 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+.main{
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+}
+
 .bg-gray{
   background-color: #f0f0f0;
 }
 
 .bg-btn{
   background-color: #888888;
+}
+
+textarea{
+  width: 100%;
+  padding: 10px;
+  border-radius: 7px;
+  min-height: 70px;
+}
+
+.btn-send{
+  background-color: hsl(238, 40%, 52%);
+  color: white;
+  font-weight: 500;
+  padding: 10px 25px;
+  border-radius: 7px;
+}
+
+.title{
+  text-align: center;
+  font-weight: 600;
+  font-size: xx-large;
+  padding-top: 10px;
+  color: hsl(238, 40%, 52%)
 }

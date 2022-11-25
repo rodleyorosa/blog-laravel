@@ -10,7 +10,7 @@
 </head>
 <body>
   
-  <div class="flex flex-col min-h-screen mx-auto w-full text-sm bg-gray">
+  <div class="main flex flex-col min-h-screen mx-auto w-full text-sm bg-gray">
     <nav class="bg-white text-gray-800 border-2">
       <div class="py-6 px-2 sm:max-w-lg md:max-w-4xl m-auto flex justify-between">
         <span class="text-xl"><a href="/">Blog</a></span>
