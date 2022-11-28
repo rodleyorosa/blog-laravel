@@ -86,15 +86,9 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
           id="content"
           name="content"
           type="text"
-          placeholder="lorem ipsum"
+          placeholder="Scrivi ..."
           class="shadow-md outline-none p-1 px-2 rounded border border-blue-200"
-        >
-        @if (isset($article))
-                {{ old('content') ? old('content') : $article->content }}
-                @else 
-                {{ old('content') }}
-                @endif
-        </textarea>
+        >@if(isset($article)){{ old('content') ? old('content') : $article->content }}@else{{ old('content') }}@endif</textarea>
         @error('content')
             <span class="text-red-500">
               {{ $message }}

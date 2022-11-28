@@ -67,14 +67,14 @@
 
         <div class="flex flex-col">
           <label for="content" class="font-bold pb-1">Content</label>
-          <input
+          <textarea
             id="content"
             name="content"
             type="text"
-            placeholder="Content"
-            value="{{ old('content') ? old('content') : $article->content }}"
+            placeholder="Scrivi ..."
             class="shadow-md outline-none p-1 px-2 rounded border border-blue-200"
-          >
+          >{{ old('content') ? old('content') : $article->content }}
+          </textarea>
           @error('content')
               <span class="text-red-500">
                 {{ $message }}
