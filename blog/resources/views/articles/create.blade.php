@@ -15,7 +15,7 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
 
 @section('content')
 <div class="mx-auto md:w-full">
-  <div class="bg-white rounded border-2 p-4">
+  <div class="bg-white rounded shadow-md p-4">
   <form action="/articles" method="POST">
     @csrf
     <div class="flex flex-col pt-5">

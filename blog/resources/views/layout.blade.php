@@ -11,7 +11,7 @@
 <body>
   
   <div class="main flex flex-col min-h-screen mx-auto w-full text-sm bg-gray">
-    <nav class="bg-white text-gray-800 border-2">
+    <nav class="bg-nav text-gray-200 shadow-md">
       <div class="py-6 px-2 sm:max-w-lg md:max-w-4xl m-auto flex justify-between">
         <span class="text-xl"><a href="/">Blog</a></span>
         <div class="ml-auto">
@@ -23,13 +23,13 @@
 
     <div class="flex-1 mx-auto sm:max-w-lg md:max-w-4xl w-full pt-5">
       <div class="flex mb-6">
-        <h1 class="font-bold m-auto text-gray-800 text-2xl">
+        <h1 class="font-bold m-auto text-h1 text-2xl">
         @yield('h1')
         </h1>
         @yield('btn')
       </div>
       <div class="md:flex">
-        <div class="bg-white h-fit mx-auto rounded border-2 sm:max-w-lg sm:mb-4 md:w-64 md:mr-4">
+        <div class="bg-white h-fit mx-auto rounded shadow-md sm:max-w-lg sm:mb-4 md:w-64 md:mr-4">
           <div class="p-4">
               <div class="mb-6">
                   <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle block m-auto" viewBox="0 0 16 16">

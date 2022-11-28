@@ -10,14 +10,14 @@
 
 @section('btn')
 <a href="articles/new"
-class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 text-center p-2 hover:bg-gray-800">Crea articolo</a>
+class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 text-center p-2">Crea articolo</a>
 @endsection
 
 @section('content')        
     <div class="mx-auto md:w-full">
     @foreach ($articles as $article)
     <a href="/articles/{{ $article->id }}/{{ $article->slug }}">
-    <div class="bg-white rounded border-2 p-4 mb-4 hover:shadow-md">
+    <div class="bg-white rounded shadow-md p-4 mb-4 hover:shadow-md">
         <div class="flex items-center justify-between">
             <h2 class="text-lg mr-auto">{{ $article->title }}</h2>
             <div class="flex">

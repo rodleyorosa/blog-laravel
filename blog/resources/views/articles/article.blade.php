@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="mx-auto md:w-full">
-    <div class="bg-white rounded border-2 p-4">
+    <div class="bg-white rounded shadow-md p-4">
         <h1 class="text-2xl">{{ $article->title }}</h1>
         <a href="/authors/{{ $author->id }}/{{ $author->name }}">
             <p class="uppercase my-2 text-xs text-gray-300">@ {{ $author->name }}{{ $author->surname }}</p>
@@ -18,7 +18,7 @@
         <p class="uppercase my-2 text-xs text-gray-300">{{ $article->created_at->format('F d, Y') }} | <span class="transition duration-300 cursor-pointer hover:text-gray-800">music</span></p>
         <p>{{ $article->content }}</p>
     </div>
-    <div class="bg-white p-4 mt-4 rounded-sm shadow-sm border-2">
+    <div class="bg-white p-4 mt-4 rounded-sm shadow-md">
         <form class="flex"
         action="/articles/{{ $article->id }}/{{ $article->slug }}" method="POST">
             @csrf
@@ -31,7 +31,7 @@
     </div>
     <h2 class="title blue-moderate my-5">COMMENT SECTION</h2>
     @foreach ($comments as $comment)
-    <div class="bg-white p-4 mt-1 rounded-sm shadow-sm border-2">
+    <div class="bg-white p-4 mt-1 rounded-sm shadow-md">
         <div class="flex">
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>

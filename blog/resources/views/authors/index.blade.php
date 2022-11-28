@@ -10,12 +10,12 @@
 
 @section('btn')
 <a href="authors/new"
-class="transition duration-200 rounded bg-btn text-gray-100 w-32 text-center p-2 hover:bg-gray-800">Aggiungi autori</a>
+class="transition duration-200 rounded bg-btn text-gray-100 w-32 text-center p-2">Aggiungi autori</a>
 @endsection
 
 @section('content')
     <div class="mx-auto md:w-full">
-        <ul class="bg-white p-4 border-2 rounded">
+        <ul class="bg-white p-4 shadow-md rounded">
             <h2 class="font-semibold mb-2 text-xl">Autori</h2>
             @foreach ($authors as $author)
             <div class="flex justify-between my-4">

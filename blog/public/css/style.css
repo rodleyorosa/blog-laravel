@@ -3,14 +3,19 @@
 .main{
   font-family: 'Rubik', sans-serif;
   font-size: 16px;
+  background-color: hsl(228, 33%, 97%);
 }
 
-.bg-gray{
-  background-color: #f0f0f0;
+.bg-nav{
+  background-color: hsl(238, 40%, 52%)
+}
+
+.text-h1{
+  color: hsl(238, 40%, 52%)
 }
 
 .bg-btn{
-  background-color: #888888;
+  background-color: hsl(238, 40%, 52%);;
 }
 
 textarea{

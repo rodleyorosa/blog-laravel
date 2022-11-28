@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="mx-auto md:w-full">
-    <div class="bg-white rounded border-2 p-4">
+    <div class="bg-white rounded shadow-md p-4">
         <h1 class="text-2xl">{{ $author->name }} {{ $author->surname}}</h1>
         <ul>
             <li>{{ $author->name }}</li>

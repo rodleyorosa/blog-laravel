@@ -10,7 +10,7 @@
 
 @section('content')
 <div class="mx-auto md:w-full">
-  <div class="bg-white rounded border-2 p-4">
+  <div class="bg-white rounded shadow-md p-4">
     <form action="/authors/{{ $author->id }}" method="POST">
       @csrf
       <div class="flex flex-col pt-5">
@@ -65,7 +65,7 @@
         <div class="flex justify-center">
           <input
             type="submit"
-            class="transition duration-200 cursor-pointer w-32 rounded-lg bg-blue-500 text-gray-100 p-2 mt-2 hover:bg-blue-800">
+            class="transition duration-200 cursor-pointer w-32 rounded-lg bg-btn text-gray-100 p-2 mt-2 text-gray-800">
         </div>
       </div>
     </form>
