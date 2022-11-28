@@ -10,7 +10,7 @@
 
 @section('btn')
 <a href="articles/new"
-class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 text-center p-2">Crea articolo</a>
+class="btn">Crea articolo</a>
 @endsection
 
 @section('content')        

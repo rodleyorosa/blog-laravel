@@ -81,12 +81,8 @@
               </span>
           @enderror
         </div>
-        <div class="flex justify-center">
-          <button
-            type="submit"
-            class="transition duration-200 cursor-pointer w-32 rounded-lg bg-btn text-gray-800 p-2 mt-2">
-          INVIA
-          </button>
+        <div class="">
+          <button class="btn mt-4">INVIA</button>
         </div>
       </div>
     </form>

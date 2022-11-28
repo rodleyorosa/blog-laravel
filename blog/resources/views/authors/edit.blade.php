@@ -62,10 +62,8 @@
               </span>
           @enderror
         </div>
-        <div class="flex justify-center">
-          <input
-            type="submit"
-            class="transition duration-200 cursor-pointer w-32 rounded-lg bg-btn text-gray-100 p-2 mt-2 text-gray-800">
+        <div class="mt-4">
+          <button class="btn">Invia</button>
         </div>
       </div>
     </form>

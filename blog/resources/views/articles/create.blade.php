@@ -10,7 +10,7 @@
 
 @section('btn')
 <a href="articles/new"
-class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 text-center p-2 hover:bg-gray-800">Crea articolo</a>
+class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 text-center p-2">Crea articolo</a>
 @endsection
 
 @section('content')
@@ -96,8 +96,10 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
         @enderror
       </div>
       <div class="mt-4">
-        <input type="submit"
-          class="transition duration-200 rounded bg-gray-400 cursor-pointer text-gray-100 w-28 text-center p-2 hover:bg-gray-800">
+        <button type="submit"
+          class="rounded bg-btn cursor-pointer text-gray-800 w-28 text-center p-2">
+          Invia
+        </button>
       </div>
     </div>
   </form>

@@ -10,7 +10,7 @@
 
 @section('btn')
 <a href="authors/new"
-class="transition duration-200 rounded bg-btn text-gray-100 w-32 text-center p-2">Aggiungi autori</a>
+class="btn">Aggiungi autori</a>
 @endsection
 
 @section('content')

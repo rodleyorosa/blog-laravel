@@ -14,8 +14,12 @@
   color: hsl(238, 40%, 52%)
 }
 
+.es{
+  color: brown;
+}
+
 .bg-btn{
-  background-color: hsl(238, 40%, 52%);;
+  background-color: hsl(238, 40%, 52%);
 }
 
 textarea{
@@ -39,7 +43,7 @@ textarea{
   margin: 10px 0;
 }
 
-.btn-send{
+.btn{
   background-color: hsl(238, 40%, 52%)  ;
   color: white;
   font-weight: 500;

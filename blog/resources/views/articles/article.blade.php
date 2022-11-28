@@ -25,7 +25,7 @@
             <textarea placeholder="Add a comment..." class="border p-4 mr-4"
             name="comments" type="text"></textarea>
             <div>
-                <button class="btn-send">SEND</button>
+                <button class="btn">SEND</button>
             </div>
         </form> 
     </div>

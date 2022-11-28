@@ -62,9 +62,7 @@
         @enderror
       </div>
       <div class="mt-4">
-        <input
-          type="submit"
-          class="transition duration-200 rounded bg-gray-400 cursor-pointer text-gray-100 w-28 text-center p-2 hover:bg-gray-800">
+        <button class="btn">INVIA</button>
       </div>
     </div>
   </form>
