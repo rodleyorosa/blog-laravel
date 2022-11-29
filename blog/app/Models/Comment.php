@@ -15,7 +15,7 @@ class Comment extends Model
         return $this->belongsTo(Author::class, 'article_id', 'id', 'articles');
     }
 
-    public function client() {
-        return $this->belongsTo(Client::class, 'client_id', 'id', 'clients');
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id', 'id', 'users');
     }
 }
