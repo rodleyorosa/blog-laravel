@@ -10,7 +10,7 @@
 ## Passaggi svolti
 
 - Creazione database.
-![database](public/images/schemaER.jpg)
+![database](public/images/schemaER.jpeg)
 - Creazione modelli + migrations
 ```
 php artisan make:model <Modelname> -m
