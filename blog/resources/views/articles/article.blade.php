@@ -41,7 +41,7 @@
             <p class="created-at">{{$comment->created_at->format('F d, Y')}}</p>
         </div>
         <div class="comment">
-            {{$comment->comments}}
+            {{$comment->comment}}
         </div>
     </div>
     @endforeach
