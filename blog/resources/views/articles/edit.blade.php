@@ -55,7 +55,11 @@
             class="shadow-md outline-none p-1 px-2 rounded border border-blue-200"
           >
           @foreach ($authors as $author)
-          <option value="{{ old('author_id') }}">{{ $author->name }} {{ $author->surname }}</option>
+          <option
+          @if ($article->author_id == $author->id)
+              selected
+          @endif
+          value="{{ $author->id }}">{{ $author->name }} {{ $author->surname }}</option>
           @endforeach
           </select>
           @error('author_id')
