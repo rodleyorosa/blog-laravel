@@ -14,7 +14,12 @@ class ArticleController extends Controller
 {
     public function index() {
         return view('articles.index', [
-            'articles' => Article::all()
+            'articles' =>
+                DB::table('articles')
+                ->select('authors.name', 'articles.content', 'articles.title', 'articles.id', 'articles.slug', 'articles.created_at')
+                ->join('authors', 'authors.id', '=', 'articles.author_id')
+                ->get(),
+            // 'articles' => Article::all()
         ]);
     }
 
@@ -51,7 +56,6 @@ class ArticleController extends Controller
         ]);
     }
 
-    //edit not done
     public function edit($id) {
         return view('articles.edit', [
             'authors' => Author::all(),

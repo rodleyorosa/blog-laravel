@@ -33,13 +33,14 @@ class="btn">Crea articolo</a>
                 </svg></a>
             </div>
         </div>
-        <p class="uppercase my-2 text-xs text-gray-300">{{ $article->created_at->format('F d, Y') }} | <span class="transition duration-300 cursor-pointer hover:text-gray-800">music</span></p>
+        <p class="uppercase my-2 text-xs text-gray-300">{{ $article->created_at }} | <span class="transition duration-300 cursor-pointer hover:text-gray-800">
+            <a href="/authors/{{ $article->id }}/{{ $article->name }}">{{ $article->name }}</a>
+        </span></p>
         <p class="text-gray-500">{{ $article->content }}</p>
     </div>
     </a>
     @endforeach
 </div>
 <div>
-    
 </div>
 @endsection

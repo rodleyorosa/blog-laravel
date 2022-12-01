@@ -11,6 +11,8 @@ class Article extends Model
 
     public $guarded = [];
 
+    protected $dates = [];
+
     public function author() {
         return $this->belongsTo(Author::class, 'author_id', 'id', 'authors');
     }
