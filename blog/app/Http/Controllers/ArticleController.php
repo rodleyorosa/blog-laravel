@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Author;
 use App\Models\Comment;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class ArticleController extends Controller
@@ -36,8 +38,14 @@ class ArticleController extends Controller
     }
 
     public function getArticle($id) {
-        return view('articles.article', [
-            'comments' => Comment::where('article_id', $id)->get(),
+        return view('articles.article', [ 
+            'users' => 
+                DB::table('users')
+                ->join('comments', 'users.id', '=', 'comments.user_id')
+                ->select('users.name', 'comments.comment', 'comments.created_at')
+                ->where('article_id', $id)
+                ->get(),
+            // 'comments' => Comment::where('article_id', $id)->get(),
             'author' => Author::findOrFail($id),
             'article' => Article::findOrFail($id)
         ]);
@@ -84,17 +92,12 @@ class ArticleController extends Controller
     }
 
     public function storeComment(Request $request, $id) {
-        // $validatedData = $request->validate([
-        //     "comments" => "required",
-        //     // "author_id" => 
-        // ]);
-
-        // Comment::create($validatedData);
         $article = Article::findOrFail($id);
 
         $comments = new Comment();
-        $comments->comments = $request->comments;
+        $comments->comment = $request->comment;
         $comments->article_id = $article->id;
+        $comments->user_id = 1;
 
         $comments->save();
         return Redirect::back();

@@ -32,11 +32,12 @@ Route::get('/articles/delete/{id}', [ArticleController::class, 'delete']);
 
 Route::post('/articles/{id}', [ArticleController::class, 'update']);
 
+Route::post('/articles/{id}/{name}', [ArticleController::class, 'storeComment']);
+
 Route::get('/articles/{id}/{slug}', [ArticleController::class, 'getArticle']);
 
 Route::get('/authors/{id}/{name}/articles', [ArticleController::class, 'indexByAuthor']);
 
-Route::post('/articles/{id}/{name}', [ArticleController::class, 'storeComment']);
 
 
 
