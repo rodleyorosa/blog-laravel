@@ -36,4 +36,5 @@ class="btn">Aggiungi autori</a>
             @endforeach
         </ul>
     </div>
+    {{ $query }}
 @endsection

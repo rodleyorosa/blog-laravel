@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Author;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AuthorController extends Controller
 {
     public function index() {
         return view('authors.index', [
+            'query' => 
+                DB::table('authors')
+                ->select(array('authors.name', DB::raw('COUNT(articles.author_id) as count')))
+                ->join('articles', 'articles.author_id', '=', 'authors.id')
+                ->get(),
             'authors' => Author::all()
         ]);
     }
