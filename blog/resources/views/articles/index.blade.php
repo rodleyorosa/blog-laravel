@@ -34,7 +34,7 @@ class="btn">Crea articolo</a>
             </div>
         </div>
         <p class="uppercase my-2 text-xs text-gray-300">{{ $article->created_at }} | <span class="transition duration-300 cursor-pointer hover:text-gray-800">
-            <a href="/authors/{{ $article->id }}/{{ $article->name }}">{{ $article->name }}</a>
+            <a href="/authors/{{ $article->author->id }}/{{ $article->author->name }}">{{ $article->author->name }}</a>
         </span></p>
         <p class="text-gray-500">{{ $article->content }}</p>
     </div>

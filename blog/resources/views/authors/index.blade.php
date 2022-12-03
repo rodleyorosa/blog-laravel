@@ -19,7 +19,7 @@ class="btn">Aggiungi autori</a>
             <h2 class="font-semibold mb-2 text-xl">Autori</h2>
             @foreach ($authors as $author)
             <div class="flex justify-between my-4">
-                <li><a href="/authors/{{ $author->id }}/{{ $author->name }}">{{ $author->name }}</a></li>
+                <li><a href="/authors/{{ $author->id }}/{{ $author->name }}">{{ $author->name }} {{ $author->surname }} <span class="mx-2">-</span> <span>{{ $author->articles->count() }} articoli</span></a></li>
                 <div class="flex">
                     <a href="/authors/edit/{{ $author->id }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil mx-2 text-blue-500" viewBox="0 0 16 16">
