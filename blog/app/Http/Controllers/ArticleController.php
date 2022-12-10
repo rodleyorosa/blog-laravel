@@ -37,9 +37,9 @@ class ArticleController extends Controller
         return redirect('/articles');
     }
 
-    public function getArticle($id) {
+    public function show($id) {
         $article = Article::findOrFail($id);
-        return view('articles.article', [ 
+        return view('articles.show', [ 
             'author' => Author::findOrFail($id),
             'comments' => $article->comments,
             'article' => Article::findOrFail($id)

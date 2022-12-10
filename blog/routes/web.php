@@ -34,7 +34,7 @@ Route::post('/articles/{id}', [ArticleController::class, 'update']);
 
 Route::post('/articles/{id}/{name}', [ArticleController::class, 'storeComment']);
 
-Route::get('/articles/{id}/{slug}', [ArticleController::class, 'getArticle']);
+Route::get('/articles/{id}/{slug}', [ArticleController::class, 'show']);
 
 Route::get('/authors/{id}/{name}/articles', [ArticleController::class, 'indexByAuthor']);
 
@@ -53,4 +53,4 @@ Route::get('/authors/delete/{id}', [AuthorController::class, 'delete']);
 
 Route::post('/authors/{id}', [AuthorController::class, 'update']);
 
-Route::get('/authors/{id}/{name}', [AuthorController::class, 'getAuthor']);
+Route::get('/authors/{id}/{name}', [AuthorController::class, 'show']);
