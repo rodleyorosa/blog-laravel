@@ -5,7 +5,7 @@
 @endsection
 
 @section('h1')
-    Articolo {{ $article->id }}
+    {{ $article->title }}
 @endsection
 
 @section('content')
@@ -13,8 +13,8 @@
     <div class="bg-white rounded shadow-md p-4">
         <h1 class="text-2xl">{{ $article->title }}</h1>
         <p class="uppercase my-2 text-xs text-gray-300">{{ $article->created_at->format('F d, Y') }} | 
-            <a href="/authors/{{ $author->id }}/{{ $author->name }}">
-                <span class="transition duration-300 cursor-pointer hover:text-gray-800">@ {{ $author->name }}{{ $author->surname }}</span>
+            <a href="/authors/{{ $article->author->id }}/{{ $article->author->name }}">
+                <span class="transition duration-300 cursor-pointer hover:text-gray-800">@ {{ $article->author->name }}{{ $article->author->surname }}</span>
             </a>
         </p>
         <p>{{ $article->content }}</p>
@@ -48,4 +48,12 @@
     @endforeach
     
 </div>
+@endsection
+
+@section('posts')
+    <ul>
+        @foreach ($author->articles as $article)
+            <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900"><a href="/articles/{{ $article->id }}/{{ $article->slug }}">{{ $article->title }}</a></li>
+        @endforeach
+    </ul>
 @endsection
