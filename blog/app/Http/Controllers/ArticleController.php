@@ -38,15 +38,10 @@ class ArticleController extends Controller
     }
 
     public function getArticle($id) {
+        $article = Article::findOrFail($id);
         return view('articles.article', [ 
-            'users' => 
-                DB::table('users')
-                ->join('comments', 'users.id', '=', 'comments.user_id')
-                ->select('users.name', 'comments.comment', 'comments.created_at')
-                ->where('article_id', $id)
-                ->get(),
-            // 'comments' => Comment::where('article_id', $id)->get(),
             'author' => Author::findOrFail($id),
+            'comments' => $article->comments,
             'article' => Article::findOrFail($id)
         ]);
     }
