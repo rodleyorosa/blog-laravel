@@ -21,7 +21,8 @@ class AuthorController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'email' => 'required|email'
+            'email' => 'required|email',
+            'description' => 'required'
         ]);
 
         Author::create($validatedData);
@@ -47,7 +48,8 @@ class AuthorController extends Controller
         $validatedData = $request->validate([
             "name" => "required",
             "surname" => "required",
-            "email" => "required"
+            "email" => "required",
+            'description' => 'required'
         ]);
 
         $author->fill($validatedData);

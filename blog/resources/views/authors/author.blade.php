@@ -17,6 +17,7 @@
             <li>{{ $author->surname }}</li>
             <li>{{ $author->email }}</li>
         </ul>
+        <p>{{ $author->description }}</p>
         <a href="/authors/{{ $author->id }}/{{ $author->name }}/articles">
             <button class="mt-4 text-center">Lista articoli di {{ $author->name }}</button>
         </a>

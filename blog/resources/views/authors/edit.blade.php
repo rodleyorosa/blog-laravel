@@ -62,6 +62,15 @@
               </span>
           @enderror
         </div>
+        <div class="flex flex-col">
+          <label for="description" class="font-bold pb-1">Descrizione</label>
+          <textarea class="shadow-md outline-none p-1 px-2 rounded border border-blue-200" name="description" id="description" placeholder="Descrizione" cols="30" rows="5">{{ $author->description }}</textarea>
+          @error('description')
+              <span class="text-red-500">
+                {{ $message }}
+              </span>
+          @enderror
+        </div>
         <div class="mt-4">
           <button class="btn">Invia</button>
         </div>
