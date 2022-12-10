@@ -19,8 +19,16 @@
         </ul>
         <p>{{ $author->description }}</p>
         <a href="/authors/{{ $author->id }}/{{ $author->name }}/articles">
-            <button class="mt-4 text-center">Lista articoli di {{ $author->name }}</button>
+            <button class="mt-4 transition duration:300 text-gray-400 hover:text-gray-900">Lista articoli di {{ $author->name }}</button>
         </a>
     </div>
 </div>
+@endsection
+
+@section('posts')
+<ul>
+    @foreach ($author->articles as $article)
+        <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900"><a href="/articles/{{ $article->id }}/{{ $article->slug }}">{{ $article->title }}</a></li>   
+    @endforeach
+</ul>
 @endsection

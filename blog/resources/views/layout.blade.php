@@ -40,11 +40,7 @@
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi labore vitae minus reprehenderit iste molestias vel, fuga debitis explicabo commodi veritatis. Error, dolor excepturi non amet in aperiam nulla reprehenderit.</p>
               <hr class="my-4">
               <p>Featured Posts:</p>
-                  {{-- @foreach ($articles as $article)
-                  <a href="/articles/{{ $article->id }}/{{ $article->slug }}">
-                  <p class="transition duration:300 my-3 text-gray-400 hover:text-gray-900">{{ $article->title }}</p>
-                  </a>
-                  @endforeach --}}
+                @yield('posts')
               <hr class="my-4">
               <div class="flex text-gray-400">
                   <span class="mr-2">
