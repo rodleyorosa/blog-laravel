@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Author;
 use Illuminate\Http\Request;
 
@@ -10,11 +11,13 @@ class AuthorController extends Controller
     public function index() {
         return view('authors.index', [
             'authors' => Author::all()
-        ]);
+        ]); 
     }
 
     public function create() {
-        return view('authors.create');
+        return view('authors.create', [
+            'articles' => Article::all()
+        ]);
     }
 
     public function store(Request $request) {
