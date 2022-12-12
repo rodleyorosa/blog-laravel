@@ -46,29 +46,6 @@
               </span>
           @enderror
         </div>
-
-        <div class="flex flex-col">
-          <label for="author_id" class="font-bold pb-1">Autore</label>
-          <select
-            id="author_id"
-            name="author_id"
-            class="shadow-md outline-none p-1 px-2 rounded border border-blue-200"
-          >
-          @foreach ($authors as $author)
-          <option
-          @if ($article->author_id == $author->id)
-              selected
-          @endif
-          value="{{ $author->id }}">{{ $author->name }} {{ $author->surname }}</option>
-          @endforeach
-          </select>
-          @error('author_id')
-              <span class="text-red-500">
-                {{ $message }}
-              </span>
-          @enderror
-        </div>
-
         <div class="flex flex-col">
           <label for="content" class="font-bold pb-1">Content</label>
           <textarea

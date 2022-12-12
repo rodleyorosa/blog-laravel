@@ -59,7 +59,7 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
             </span>
         @enderror
       </div>
-      <div class="flex flex-col">
+      {{-- <div class="flex flex-col">
         <label for="author_id" class="font-bold pb-1">Autore</label>
         <select
           id="author_id"
@@ -70,7 +70,6 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
         >
         @foreach ($authors as $author)
           <option
-            {{-- {{ $author->id == $article->author->id ? 'selected' : '' }}    --}}
               value="{{ $author->id }}">{{ $author->name }} {{ $author->surname }}</option>
         @endforeach  
         </select>
@@ -79,7 +78,7 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
               {{ $message }}
             </span>
         @enderror
-      </div>
+      </div> --}}
       <div class="flex flex-col">
         <label for="content" class="font-bold pb-1">Testo</label>
         <textarea

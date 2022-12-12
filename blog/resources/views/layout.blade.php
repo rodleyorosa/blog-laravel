@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>@yield('title')</title>
+  <title>@yield('title', 'blog')</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -19,6 +19,23 @@
           <span class="pr-2"><a href="/articles">Articoli</a></span>
           <span class="pr-2"><a href="/authors">Autori</a></span>
         </div>
+        
+       
+        @isset(Auth::user()->name)    
+        <div>
+          Ciao {{ Auth::user()->name }}
+          <a href="/logout">Esci</a>
+        </div>
+        @else       
+        <div>
+          <a href="/login">Accedi</a>
+        </div>
+        @endisset
+        
+
+        
+        
+
       </div>
     </nav>
 

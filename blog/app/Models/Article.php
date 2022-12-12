@@ -14,7 +14,7 @@ class Article extends Model
     protected $dates = [];
 
     public function author() {
-        return $this->belongsTo(Author::class, 'author_id', 'id', 'authors');
+        return $this->belongsTo(User::class, 'author_id', 'id', 'users');
     }
 
     public function comments() {

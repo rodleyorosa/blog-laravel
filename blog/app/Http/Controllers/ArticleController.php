@@ -7,6 +7,7 @@ use App\Models\Author;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -28,9 +29,11 @@ class ArticleController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'slug' => 'required',
-            'author_id' => 'required',
+            // 'author_id' => 'required',
             'content' => 'required'
         ]);
+
+        $validatedData['author_id'] = Auth::user()->id;
 
         Article::create($validatedData);
     
@@ -40,7 +43,7 @@ class ArticleController extends Controller
     public function show($id) {
         $article = Article::findOrFail($id);
         return view('articles.show', [ 
-            'author' => Author::findOrFail($id),
+            'author' => User::findOrFail($id),
             'comments' => $article->comments,
             'article' => Article::findOrFail($id)
         ]);
@@ -59,7 +62,7 @@ class ArticleController extends Controller
         $validatedData = $request->validate([
             "title" => "required",
             "slug" => "required",
-            "author_id" => "required",
+            // "author_id" => "required",
             "content" => "required"
         ]);
 
@@ -76,7 +79,7 @@ class ArticleController extends Controller
     }
 
     public function indexByAuthor($id) {
-        $author = Author::findOrFail($id);
+        $author = User::findOrFail($id);
 
         return view('articles.index', [
             "articles" => $author->articles,

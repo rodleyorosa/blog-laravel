@@ -11,15 +11,20 @@
 @section('btn')
 <a href="articles/new"
 class="btn">Crea articolo</a>
+
 @endsection
 
-@section('content')        
+
+@section('content')
     <div class="mx-auto md:w-full">
     @foreach ($articles as $article)
-    <a href="/articles/{{ $article->id }}/{{ $article->slug }}">
     <div class="bg-white rounded shadow-md p-4 mb-4 hover:shadow-md">
         <div class="flex items-center justify-between">
-            <h2 class="text-lg mr-auto">{{ $article->title }}</h2>
+            <a href="/articles/{{ $article->id }}/{{ $article->slug }}">
+                <h2 class="text-lg mr-auto">{{ $article->title }}</h2>
+            </a>
+            @auth
+            @if (Auth::user()->id == $article->author->id)
             <div class="flex">
                 <a href="/articles/edit/{{ $article->id }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil mx-2 text-blue-500" viewBox="0 0 16 16">
@@ -32,13 +37,14 @@ class="btn">Crea articolo</a>
                     <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                 </svg></a>
             </div>
+            @endif
+            @endauth
         </div>
         <p class="uppercase my-2 text-xs text-gray-300">{{ $article->created_at }} | <span class="transition duration-300 cursor-pointer hover:text-gray-800">
             <a href="/authors/{{ $article->author->id }}/{{ $article->author->name }}">{{ $article->author->name }}</a>
         </span></p>
         <p class="text-gray-500">{{ $article->content }}</p>
     </div>
-    </a>
     @endforeach
 </div>
 <div>

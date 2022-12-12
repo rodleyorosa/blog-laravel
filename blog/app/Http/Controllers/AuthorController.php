@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Author;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
     public function index() {
         return view('authors.index', [
-            'authors' => Author::all()
+            'authors' => User::all()
         ]); 
     }
 
@@ -35,7 +36,7 @@ class AuthorController extends Controller
 
     public function show($id) {
         return view('authors.show', [
-            'author' => Author::findOrFail($id)
+            'author' => User::findOrFail($id)
         ]);
     }
 
