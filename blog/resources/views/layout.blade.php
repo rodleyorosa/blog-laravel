@@ -13,17 +13,15 @@
   
   <div class="main flex flex-col min-h-screen mx-auto w-full text-sm bg-gray">
     <nav class="bg-nav text-gray-200 shadow-md">
-      <div class="py-6 px-2 sm:max-w-lg md:max-w-4xl m-auto flex justify-between">
+      <div class="py-6 px-2 sm:max-w-lg md:max-w-4xl items-center m-auto flex justify-between">
         <span class="text-xl"><a href="/">Blog</a></span>
-        <div class="ml-auto">
+        <div class="">
           <span class="pr-2"><a href="/articles">Articoli</a></span>
           <span class="pr-2"><a href="/authors">Autori</a></span>
         </div>
-        
-       
         @isset(Auth::user()->name)    
-        <div>
-          Ciao {{ Auth::user()->name }}
+        <div class="">
+          <span class="mr-2">Ciao {{ Auth::user()->name }}!</span>
           <a href="/logout">Esci</a>
         </div>
         @else       
@@ -31,11 +29,6 @@
           <a href="/login">Accedi</a>
         </div>
         @endisset
-        
-
-        
-        
-
       </div>
     </nav>
 
@@ -52,10 +45,27 @@
               <div class="mb-4">
                 <img class="w-3/4 m-auto" src="{{ asset('images/logo_laravel.png') }}" alt="description of myimage">
               </div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi labore vitae minus reprehenderit iste molestias vel, fuga debitis explicabo commodi veritatis. Error, dolor excepturi non amet in aperiam nulla reprehenderit.</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipi sicing elit. Eligendi labore vitae minus reprehenderit iste molestias vel, fuga debitis explicabo commodi veritatis. Error, dolor excepturi non amet in aperiam nulla reprehenderit.</p>
               <hr class="my-4">
+              @isset (Auth::user()->name)
               <p>Featured Posts:</p>
-                @yield('posts')
+              <ul>
+                @foreach (Auth::user()->articles as $article)
+                <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900">
+                  <a href="/articles/{{ $article->id }}/{{ $article->slug }}">{{ $article->title }}</a>
+                </li>
+                @endforeach
+              </ul>
+              @else
+              <p>All Featured Posts:</p>
+              <ul>
+                {{-- @foreach ($articles as $article)
+                <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900">
+                  <a href="/articles/{{ $article->id }}/{{ $article->slug }}">{{ $article->title }}</a>
+                </li>
+                @endforeach --}}
+              </ul>
+              @endisset
               <hr class="my-4">
               <div class="flex text-gray-400">
                   <span class="mr-2">

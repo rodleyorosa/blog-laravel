@@ -50,13 +50,3 @@ class="btn">Crea articolo</a>
 <div>
 </div>
 @endsection
-
-@section('posts')
-    <ul>
-        @foreach ($articles as $article)
-            <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900">
-                <a href="/articles/{{ $article->id }}/{{ $article->slug }}">{{ $article->title }}</a>
-            </li>
-        @endforeach
-    </ul>
-@endsection

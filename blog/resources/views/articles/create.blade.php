@@ -95,22 +95,10 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
         @enderror
       </div>
       <div class="mt-4">
-        <button class="btn">Invia</button>
+        <button class="btn">CREA</button>
       </div>
     </div>
   </form>
   </div>
 </div>
-@endsection
-
-@section('posts')
-    <ul>
-      @foreach ($authors as $author)
-          @foreach ($author->articles as $article)
-              <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900">
-                <a href="/articles/{{ $article->id }}/{{ $article->slug }}">{{ $article->title }}</a>
-              </li>
-          @endforeach
-      @endforeach
-    </ul>
 @endsection

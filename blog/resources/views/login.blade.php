@@ -35,13 +35,13 @@
             id="password"
             name="password"
             type="password"
-            placeholder="password"
+            placeholder="Password"
             class="shadow-md outline-none p-1 px-2 rounded border border-blue-200"
           >
         </div>
         <div class="mt-4">
-          <button class="btn">INVIA</button>
-          <span>o <a href="/register">Registrati</a></span>
+          <button class="btn">ACCEDI</button>
+          <span class="mx-2">o</span> <span><a class="underline" href="/register">Registrati</a></span>
         </div>
       </div>
       @error('login')

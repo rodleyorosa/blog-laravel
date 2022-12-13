@@ -19,7 +19,7 @@
             id="name"
             name="name"
             type="text"
-            placeholder="name"
+            placeholder="Nome"
             value="{{ old('name') }}"
             class="shadow-md outline-none p-1 px-2 rounded border border-blue-200"
           >
@@ -35,7 +35,7 @@
             id="surname"
             name="surname"
             type="text"
-            placeholder="surname"
+            placeholder="Cognome"
             value="{{ old('surname') }}"
             class="shadow-md outline-none p-1 px-2 rounded border border-blue-200"
           >
@@ -67,7 +67,7 @@
             id="password"
             name="password"
             type="password"
-            placeholder="password"
+            placeholder="Password"
             class="shadow-md outline-none p-1 px-2 rounded border border-blue-200"
           >
           @error('password')
@@ -82,7 +82,7 @@
             id="password_confirmation"
             name="password_confirmation"
             type="password"
-            placeholder="password_confirmation"
+            placeholder="Conferma password"
             class="shadow-md outline-none p-1 px-2 rounded border border-blue-200"
           >
           @error('password_confirmation')
@@ -92,7 +92,7 @@
           @enderror
         </div>
         <div class="mt-4">
-          <button class="btn">INVIA</button>
+          <button class="btn">REGISTRATI</button>
         </div>
       </div>
       @error('login')
