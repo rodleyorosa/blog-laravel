@@ -48,11 +48,11 @@
               <p>Lorem ipsum dolor sit amet consectetur adipi sicing elit. Eligendi labore vitae minus reprehenderit iste molestias vel, fuga debitis explicabo commodi veritatis. Error, dolor excepturi non amet in aperiam nulla reprehenderit.</p>
               <hr class="my-4">
               @isset (Auth::user()->name)
-              <p>Featured Posts:</p>
+              <p>Your Featured Posts:</p>
               <ul>
                 @foreach (Auth::user()->articles as $article)
                 <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900">
-                  <a href="/articles/{{ $article->id }}/{{ $article->slug }}">{{ $article->title }}</a>
+                  <a href="/articles/{{ $article->slug }}">{{ $article->title }}</a>
                 </li>
                 @endforeach
               </ul>
@@ -93,6 +93,8 @@
       </div>
     </div>
   </div>
+
+  @yield('script')
 
 </body>
 </html>

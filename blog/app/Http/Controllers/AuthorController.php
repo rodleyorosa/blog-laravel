@@ -25,7 +25,11 @@ class AuthorController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'email' => 'required|email',
+            'email' => [
+                'required',
+                'email',
+                'unique:authors',
+            ],
             'description' => 'required'
         ]);
 

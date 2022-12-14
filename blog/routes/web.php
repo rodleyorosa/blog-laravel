@@ -33,9 +33,11 @@ Route::post('/register', [LoginController::class, 'doRegister']);
 Route::group(["middleware" => ["auth"]], function() {
     Route::get('/articles/new', [ArticleController::class, 'create']);
     Route::get('/articles/edit/{id}', [ArticleController::class, 'edit']);
+    Route::get('/articles/{slug}', [ArticleController::class, 'show']);
 
     Route::get('/authors/new', [AuthorController::class, 'create']);
     Route::get('/authors/edit/{id}', [AuthorController::class, 'edit']);
+    Route::get('/authors/{id}/{name}', [AuthorController::class, 'show']);
 
     Route::get('logout', [LoginController::class, 'logout']);
 });
@@ -44,11 +46,10 @@ Route::post('/articles', [ArticleController::class, 'store']);
 Route::get('/articles/delete/{id}', [ArticleController::class, 'delete']);
 Route::post('/articles/{id}', [ArticleController::class, 'update']);
 Route::post('/articles/{id}/{name}', [ArticleController::class, 'storeComment']);
-Route::get('/articles/{id}/{slug}', [ArticleController::class, 'show']);
 Route::get('/authors/{id}/{name}/articles', [ArticleController::class, 'indexByAuthor']);
+Route::post('/articles/{slug}', [ArticleController::class, 'updateComment']);
 
 
 Route::post('/authors', [AuthorController::class, 'store']);
 Route::get('/authors/delete/{id}', [AuthorController::class, 'delete']);
 Route::post('/authors/{id}', [AuthorController::class, 'update']);
-Route::get('/authors/{id}/{name}', [AuthorController::class, 'show']);

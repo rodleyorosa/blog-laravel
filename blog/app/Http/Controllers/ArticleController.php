@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule as ValidationRule;
 
 class ArticleController extends Controller
 {
@@ -26,9 +28,12 @@ class ArticleController extends Controller
     }
 
     public function store(Request $request) {
+
+        $request['slug'] = Str::slug($request->slug);
+
         $validatedData = $request->validate([
             'title' => 'required',
-            'slug' => 'required',
+            'slug' => 'required|unique:articles',
             // 'author_id' => 'required',
             'content' => 'required'
         ]);
@@ -40,12 +45,12 @@ class ArticleController extends Controller
         return redirect('/articles');
     }
 
-    public function show($id) {
-        $article = Article::findOrFail($id);
+    public function show($slug) {
+        $article = Article::where('slug', $slug)->first();
         return view('articles.show', [ 
-            'author' => User::findOrFail($id),
+            'author' => $article->author,
             'comments' => $article->comments,
-            'article' => Article::findOrFail($id)
+            'article' => $article
         ]);
     }
 
@@ -59,14 +64,23 @@ class ArticleController extends Controller
     public function update(Request $request, $id) {
         $article = Article::findOrFail($id);
 
+        $request['slug'] = Str::slug($request->slug);
+
         $validatedData = $request->validate([
             "title" => "required",
-            "slug" => "required",
+            "slug" => [
+                "required",
+                // ValidationRule::unique('articles')->ignore($id),
+            ],
             // "author_id" => "required",
             "content" => "required"
         ]);
 
         $article->fill($validatedData);
+        // $article->title = $request->title;
+        // $article->slug = $request->slug;
+        // $article->content = $request->content;
+
         $article->save();
 
         return redirect('/articles');
@@ -94,10 +108,24 @@ class ArticleController extends Controller
         $comments = new Comment();
         $comments->comment = $request->comment;
         $comments->article_id = $article->id;
-        $comments->user_id = 1;
+        $comments->user_id = Auth::user()->id;
 
         $comments->save();
+        
         return Redirect::back();
+    }
+
+    public function updateComment(Request $request, $id) {
+        $comment = Comment::find($id);
+        $article = Article::find($id);
+
+        $comment->comment = $request->comment;
+        $comment->article_id = $article->id;
+        $comment->user_id = Auth::user()->id;
+
+        $comment->save();
+
+        // return Redirect::back();
     }
 
 }

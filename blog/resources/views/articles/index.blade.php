@@ -11,7 +11,6 @@
 @section('btn')
 <a href="articles/new"
 class="btn">Crea articolo</a>
-
 @endsection
 
 
@@ -20,7 +19,7 @@ class="btn">Crea articolo</a>
     @foreach ($articles as $article)
     <div class="bg-white rounded shadow-md p-4 mb-4 hover:shadow-md">
         <div class="flex items-center justify-between">
-            <a href="/articles/{{ $article->id }}/{{ $article->slug }}">
+            <a href="/articles/{{ $article->slug }}">
                 <h2 class="text-lg mr-auto">{{ $article->title }}</h2>
             </a>
             @auth
