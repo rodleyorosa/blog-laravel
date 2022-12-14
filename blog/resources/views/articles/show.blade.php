@@ -13,8 +13,8 @@
     <div class="bg-white rounded shadow-md p-4">
         <h1 class="text-2xl">{{ $article->title }}</h1>
         <p class="uppercase my-2 text-xs text-gray-300">{{ $article->created_at->format('F d, Y') }} | 
-            <a href="/authors/{{ $article->author->id }}/{{ $article->author->name }}">
-                <span class="transition duration-300 cursor-pointer hover:text-gray-800">@ {{ $article->author->name }}{{ $article->author->surname }}</span>
+            <a href="/authors/{{ $article->user->id }}/{{ $article->user->name }}">
+                <span class="transition duration-300 cursor-pointer hover:text-gray-800">@ {{ $article->user->name }}{{ $article->user->surname }}</span>
             </a>
         </p>
         <p>{{ $article->content }}</p>

@@ -9,18 +9,6 @@ use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
-    public function index() {
-        return view('authors.index', [
-            'authors' => User::all()
-        ]); 
-    }
-
-    public function create() {
-        return view('authors.create', [
-            'articles' => Article::all()
-        ]);
-    }
-
     public function store(Request $request) {
         $validatedData = $request->validate([
             'name' => 'required',
@@ -36,18 +24,6 @@ class AuthorController extends Controller
         Author::create($validatedData);
 
         return redirect('/authors');
-    }
-
-    public function show($id) {
-        return view('authors.show', [
-            'author' => User::findOrFail($id)
-        ]);
-    }
-
-    public function edit($id) {
-        return view('authors.edit', [
-            'author' => Author::findOrFail($id)
-        ]);
     }
 
     public function update(Request $request, $id) {

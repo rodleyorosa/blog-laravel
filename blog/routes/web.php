@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,7 @@ Route::get('/', function() {
 });
 
 Route::get('/articles', [ArticleController::class, 'index']);
-Route::get('/authors', [AuthorController::class, 'index']);
+Route::get('/authors', [UserController::class, 'index']);
 Route::get('/login', [LoginController::class, 'login'])->name("login");
 Route::post('/login', [LoginController::class, 'doLogin']);
 Route::get('/register', [LoginController::class, 'register']);
@@ -35,9 +36,9 @@ Route::group(["middleware" => ["auth"]], function() {
     Route::get('/articles/edit/{id}', [ArticleController::class, 'edit']);
     Route::get('/articles/{slug}', [ArticleController::class, 'show']);
 
-    Route::get('/authors/new', [AuthorController::class, 'create']);
-    Route::get('/authors/edit/{id}', [AuthorController::class, 'edit']);
-    Route::get('/authors/{id}/{name}', [AuthorController::class, 'show']);
+    Route::get('/authors/new', [UserController::class, 'create']);
+    Route::get('/authors/edit/{id}', [UserController::class, 'edit']);
+    Route::get('/authors/{id}/{name}', [UserController::class, 'show']);
 
     Route::get('logout', [LoginController::class, 'logout']);
 });
@@ -50,6 +51,6 @@ Route::get('/authors/{id}/{name}/articles', [ArticleController::class, 'indexByA
 Route::post('/articles/{slug}', [ArticleController::class, 'updateComment']);
 
 
-Route::post('/authors', [AuthorController::class, 'store']);
-Route::get('/authors/delete/{id}', [AuthorController::class, 'delete']);
-Route::post('/authors/{id}', [AuthorController::class, 'update']);
+// Route::post('/authors', [AuthorController::class, 'store']);
+// Route::get('/authors/delete/{id}', [AuthorController::class, 'delete']);
+// Route::post('/authors/{id}', [AuthorController::class, 'update']);

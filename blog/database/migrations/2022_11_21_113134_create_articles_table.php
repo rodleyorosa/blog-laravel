@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('slug');
             $table->text('content');
             $table->timestamps();
+
+            $table->bigInteger('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

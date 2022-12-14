@@ -14,7 +14,6 @@ class="transition float-right duration-200 rounded bg-btn text-gray-100 w-28 tex
 @endsection
 
 @section('content')
-{{ $request }}
 <div class="mx-auto md:w-full">
   <div class="bg-white rounded shadow-md p-4">
   <form action="/articles" method="POST">

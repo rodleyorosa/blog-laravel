@@ -23,7 +23,7 @@ class="btn">Crea articolo</a>
                 <h2 class="text-lg mr-auto">{{ $article->title }}</h2>
             </a>
             @auth
-            @if (Auth::user()->id == $article->author->id)
+            @if (Auth::user()->id == $article->user->id)
             <div class="flex">
                 <a href="/articles/edit/{{ $article->id }}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil mx-2 text-blue-500" viewBox="0 0 16 16">
@@ -40,7 +40,7 @@ class="btn">Crea articolo</a>
             @endauth
         </div>
         <p class="uppercase my-2 text-xs text-gray-300">{{ $article->created_at }} | <span class="transition duration-300 cursor-pointer hover:text-gray-800">
-            <a href="/authors/{{ $article->author->id }}/{{ $article->author->name }}">{{ $article->author->name }}</a>
+            <a href="/authors/{{ $article->user->id }}/{{ $article->user->name }}">{{ $article->user->name }}</a>
         </span></p>
         <p class="text-gray-500">{{ $article->content }}</p>
     </div>

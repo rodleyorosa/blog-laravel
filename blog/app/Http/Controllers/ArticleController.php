@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use App\Models\Author;
 use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule as ValidationRule;
@@ -23,7 +21,7 @@ class ArticleController extends Controller
 
     public function create() {
         return view('articles.create', [
-            'authors' => Author::all()
+            'authors' => User::all()
         ]);
     }
 
@@ -34,11 +32,11 @@ class ArticleController extends Controller
         $validatedData = $request->validate([
             'title' => 'required',
             'slug' => 'required|unique:articles',
-            // 'author_id' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            // 'user_id' => 'required',
         ]);
 
-        $validatedData['author_id'] = Auth::user()->id;
+        $validatedData['user_id'] = Auth::user()->id;
 
         Article::create($validatedData);
     
@@ -56,7 +54,7 @@ class ArticleController extends Controller
 
     public function edit($id) {
         return view('articles.edit', [
-            'authors' => Author::all(),
+            'authors' => User::all(),
             'article' => Article::findOrFail($id)
         ]);
     }
