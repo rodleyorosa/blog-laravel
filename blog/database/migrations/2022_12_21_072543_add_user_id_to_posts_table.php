@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,9 +14,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('comments', function (Blueprint $table) {
-            $table->bigInteger('article_id')->unsigned()->nullable();
-            $table->foreign('article_id')->references('id')->on('articles');
+        Schema::table('posts', function (Blueprint $table) {
+            $table->foreignIdFor(User::class)->nullable()->constrained('users');
         });
     }
 
@@ -26,9 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function (Blueprint $table) {
-            $table->dropForeign(['article_id']);
-            $table->dropColumn(['article_id']);
+        Schema::table('posts', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropColumn(['user_id']);
         });
     }
 };

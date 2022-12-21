@@ -1,27 +1,27 @@
 @extends('layout')
 
 @section('title')
-    Articolo
+    Post
 @endsection
 
 @section('h1')
-    {{ $article->title }}
+    {{ $post->title }}
 @endsection
 
 @section('content')
 <div class="mx-auto md:w-full">
     <div class="bg-white rounded shadow-md p-4">
-        <h1 class="text-2xl">{{ $article->title }}</h1>
-        <p class="uppercase my-2 text-xs text-gray-300">{{ $article->created_at->format('F d, Y') }} | 
-            <a href="/authors/{{ $article->user->id }}/{{ $article->user->name }}">
-                <span class="transition duration-300 cursor-pointer hover:text-gray-800">@ {{ $article->user->name }}{{ $article->user->surname }}</span>
+        <h1 class="text-2xl">{{ $post->title }}</h1>
+        <p class="uppercase my-2 text-xs text-gray-300">{{ $post->created_at->format('F d, Y') }} | 
+            <a href="{{ route('authors.show', $author->id) }}">
+                <span class="transition duration-300 cursor-pointer hover:text-gray-800">{{ $post->user->name }}{{ $post->user->surname }}</span>
             </a>
         </p>
-        <p>{{ $article->content }}</p>
+        <p>{{ $post->content }}</p>
     </div>
     <div class="bg-white p-4 mt-4 rounded-sm shadow-md">
         <form class="flex"
-        action="/articles/{{ $article->id }}/{{ $article->slug }}" method="POST">
+        action="/posts/{{ $post->id }}/{{ $post->slug }}" method="POST">
             @csrf
             <textarea placeholder="Add a comment..." class="border p-4 mr-4"
             name="comment" type="text"></textarea>
@@ -31,7 +31,7 @@
         </form> 
     </div>
     <h2 class="title blue-moderate my-5">COMMENT SECTION</h2>
-    @foreach ($comments as $comment)
+    {{-- @foreach ($comments as $comment)
     <div class="bg-white p-4 mt-1 rounded-sm shadow-md">
         <div class="flex justify-between">
             <div class="flex">
@@ -61,7 +61,7 @@
         @if (Auth::user()->id == $comment->user_id)
         <div class="comment">
             <span id="comment">{{$comment->comment}}</span>
-            <form id="edit-comment" class="hidden" method="POST" action="/articles/{{ $article->slug }}">
+            <form id="edit-comment" class="hidden" method="POST" action="/posts/{{ $post->slug }}">
                 @csrf
                 <div class="flex">
                     <textarea class="border" placeholder="Comment ..." name="" id="" cols="30" rows="5">{{ $comment->comment }}</textarea>
@@ -77,7 +77,7 @@
         </div>
         @endif
     </div>
-    @endforeach
+    @endforeach --}}
 </div>
 @endsection
 

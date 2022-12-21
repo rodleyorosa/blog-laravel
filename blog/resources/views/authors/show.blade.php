@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    Autore
+    {{ $author->name }}
 @endsection
 
 @section('h1')
@@ -18,7 +18,7 @@
             <li>{{ $author->email }}</li>
         </ul>
         <p>{{ $author->description }}</p>
-        <a href="/authors/{{ $author->id }}/{{ $author->name }}/articles">
+        <a href="{{ route('authors.posts.index', $author->id) }}">
             <button class="mt-4 transition duration:300 text-gray-400 hover:text-gray-900">Lista articoli di {{ $author->name }}</button>
         </a>
     </div>

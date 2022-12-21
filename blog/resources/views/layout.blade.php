@@ -16,19 +16,20 @@
       <div class="py-6 px-2 sm:max-w-lg md:max-w-4xl items-center m-auto flex justify-between">
         <span class="text-xl"><a href="/">Blog</a></span>
         <div class="">
-          <span class="pr-2"><a href="/articles">Articoli</a></span>
-          <span class="pr-2"><a href="/authors">Autori</a></span>
+          <span class="pr-2"><a href="{{ route('posts') }}">Posts</a></span>
+          <span class="pr-2"><a href="{{ route('authors.index') }}">Autori</a></span>
         </div>
-        @isset(Auth::user()->name)    
+        @auth            
         <div class="">
-          <span class="mr-2">Ciao {{ Auth::user()->name }}!</span>
+          <span class="mr-2">Ciao <span class="text-yellow-500">{{ Auth::user()->name }}</span>!</span>
           <a href="/logout">Esci</a>
         </div>
-        @else       
+        @endauth    
+        @guest
         <div>
           <a href="/login">Accedi</a>
         </div>
-        @endisset
+        @endguest       
       </div>
     </nav>
 
@@ -50,18 +51,18 @@
               @isset (Auth::user()->name)
               <p>Your Featured Posts:</p>
               <ul>
-                @foreach (Auth::user()->articles as $article)
+                {{-- @foreach (Auth::user()->posts as $post) --}}
                 <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900">
-                  <a href="/articles/{{ $article->slug }}">{{ $article->title }}</a>
+                  {{-- <a href="/posts/{{ $post->slug }}">{{ $post->title }}</a> --}}
                 </li>
-                @endforeach
+                {{-- @endforeach --}}
               </ul>
               @else
               <p>All Featured Posts:</p>
               <ul>
-                {{-- @foreach ($articles as $article)
+                {{-- @foreach ($posts as $post)
                 <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900">
-                  <a href="/articles/{{ $article->id }}/{{ $article->slug }}">{{ $article->title }}</a>
+                  <a href="/posts/{{ $post->id }}/{{ $post->slug }}">{{ $post->title }}</a>
                 </li>
                 @endforeach --}}
               </ul>
