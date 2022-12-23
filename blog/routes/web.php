@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,12 +25,14 @@ Route::get('/', function() {
 
 Route::get('/posts', [PostController::class, 'allPosts'])->name('posts');
 Route::resource('authors', UserController::class)->only('index', 'show');
-Route::resource('authors.posts', PostController::class)->except('show');
+Route::resource('authors.posts', PostController::class);
+// Route::singleton('profile', ProfileController::class);
 
 Route::get('/login', [LoginController::class, 'login'])->name("login");
 Route::post('/login', [LoginController::class, 'doLogin']);
 Route::get('/register', [LoginController::class, 'register']);
 Route::post('/register', [LoginController::class, 'doRegister']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(["middleware" => ["auth"]], function() {
     Route::resource('authors.posts', PostController::class)->except('index', 'show');    

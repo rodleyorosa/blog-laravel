@@ -22,12 +22,12 @@
         @auth            
         <div class="">
           <span class="mr-2">Ciao <span class="text-yellow-500">{{ Auth::user()->name }}</span>!</span>
-          <a href="/logout">Esci</a>
+          <a href="{{ route('logout') }}">Esci</a>
         </div>
         @endauth    
         @guest
         <div>
-          <a href="/login">Accedi</a>
+          <a href="{{ route('login') }}">Accedi</a>
         </div>
         @endguest       
       </div>
@@ -51,20 +51,22 @@
               @isset (Auth::user()->name)
               <p>Your Featured Posts:</p>
               <ul>
-                {{-- @foreach (Auth::user()->posts as $post) --}}
+                @foreach (Auth::user()->posts as $post)
                 <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900">
-                  {{-- <a href="/posts/{{ $post->slug }}">{{ $post->title }}</a> --}}
+                  <a href="{{ route('authors.posts.show', [$post->user_id, $post->id]) }}">{{ $post->title }}</a>
                 </li>
-                {{-- @endforeach --}}
+                @endforeach
               </ul>
               @else
               <p>All Featured Posts:</p>
               <ul>
-                {{-- @foreach ($posts as $post)
+                {{-- <?php  ?>
+                @foreach (Post::all() as $post)
                 <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900">
                   <a href="/posts/{{ $post->id }}/{{ $post->slug }}">{{ $post->title }}</a>
                 </li>
-                @endforeach --}}
+                @endforeach
+                <?php ?> --}}
               </ul>
               @endisset
               <hr class="my-4">

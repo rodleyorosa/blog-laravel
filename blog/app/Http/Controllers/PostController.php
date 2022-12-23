@@ -76,20 +76,11 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, User $author, Post $post)
+    public function show(User $author, Post $post)
     {
-        $validation = $request->validate([
-            'comment' => []
-        ]);
-        $validation['post_id'] = $post->id;
-        $validation['user_id'] = $author->id;
-
-        Comment::create($validation);
-        
         return view('posts.show', [
             'author' => $author,
             'post' => $post,
-            ''
         ]);
     }
 
