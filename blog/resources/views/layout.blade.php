@@ -60,13 +60,11 @@
               @else
               <p>All Featured Posts:</p>
               <ul>
-                {{-- <?php  ?>
-                @foreach (Post::all() as $post)
+                @foreach ($posts as $post)
                 <li class="transition duration:300 my-3 text-gray-400 hover:text-gray-900">
-                  <a href="/posts/{{ $post->id }}/{{ $post->slug }}">{{ $post->title }}</a>
+                  <a href="{{ route('authors.posts.show', [$post->user_id, $post->id]) }}">{{ $post->title }}</a>
                 </li>
                 @endforeach
-                <?php ?> --}}
               </ul>
               @endisset
               <hr class="my-4">

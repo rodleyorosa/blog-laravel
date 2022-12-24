@@ -8,6 +8,11 @@
     Lista posts
 @endsection
 
+@auth
+@section('btn')
+<a href="{{ route('authors.posts.create', Auth::id()) }}" class="btn">Crea post</a>
+@endsection
+@endauth
 
 @section('content')
     <div class="mx-auto md:w-full">
