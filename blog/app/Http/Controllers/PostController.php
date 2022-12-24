@@ -6,8 +6,8 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
-use PharIo\Manifest\Author;
 
 class PostController extends Controller
 {
@@ -81,6 +81,7 @@ class PostController extends Controller
         return view('posts.show', [
             'author' => $author,
             'post' => $post,
+            'comments' => $post->comments
         ]);
     }
 
@@ -135,6 +136,34 @@ class PostController extends Controller
     public function destroy(User $author, Post $post)
     {
         Post::destroy($post->id);
+
+        return redirect()->back();
+    }
+
+    public function storeComment(Request $request, User $author, Post $post) {
+        $comment = new Comment();
+        $comment->comment = $request->comment;
+        $comment->user_id = $author->id;
+        $comment->post_id = $post->id;
+        
+        $comment->save();
+
+        return redirect()->back();
+    }
+
+    public function updateComment(Request $request, User $author, Post $post, Comment $comment) {
+        $validation = $request->validate([
+            'comment' => ''
+        ]);
+        
+        $comment->fill($validation);
+        $comment->save();
+
+        return redirect()->back();
+    }
+
+    public function destroyComment(User $author, Post $post, Comment $comment) {
+        Comment::destroy($comment->id);
 
         return redirect()->back();
     }

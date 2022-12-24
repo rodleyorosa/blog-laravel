@@ -36,4 +36,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::group(["middleware" => ["auth"]], function() {
     Route::resource('authors.posts', PostController::class)->except('index', 'show');    
+    Route::post('/authors/{author}/posts/{post}', [PostController::class, 'storeComment']);
+    Route::delete('/authors/{author}/posts/{post}/{comment}', [PostController::class, 'destroyComment'])->name('destroyComment');
+    Route::put('/authors/{author}/posts/{post}/{comment}', [PostController::class, 'updateComment'])->name('updateComment');
 });

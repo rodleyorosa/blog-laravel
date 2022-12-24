@@ -5,7 +5,7 @@
 @endsection
 
 @section('h1')
-{{ isset($post) ? 'Modifica' : 'Crea' }} articolo
+{{ isset($post) ? 'Modifica' : 'Crea' }} post
 @endsection
 
 @section('content')
